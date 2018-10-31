@@ -3855,7 +3855,7 @@ retry:
 
 #ifdef CONFIG_ANDROID_SIMPLE_LMK
 	if (gfp_mask & __GFP_NORETRY)
-		goto noretry;
+		goto nopage;
 
 	ac->is_lmk_alloc = true;
 	pg_req.gfp_mask = gfp_mask;
