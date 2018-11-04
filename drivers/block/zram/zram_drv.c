@@ -1441,11 +1441,7 @@ static int zram_rw_page(struct block_device *bdev, sector_t sector,
 	bv.bv_len = PAGE_SIZE;
 	bv.bv_offset = 0;
 
-<<<<<<< HEAD
-	ret = zram_bvec_rw(zram, &bv, index, offset, is_write);
-=======
-	ret = zram_bvec_rw(zram, &bv, index, offset, rw, NULL);
->>>>>>> 7aae874aa19d... BACKPORT: zram: write incompressible pages to backing device
+	ret = zram_bvec_rw(zram, &bv, index, offset, is_write, NULL);
 out:
 	/*
 	 * If I/O fails, just return error(ie, non-zero) without
