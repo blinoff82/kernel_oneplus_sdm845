@@ -7494,13 +7494,6 @@ static int select_energy_cpu_brute(struct task_struct *p, int prev_cpu,
 	struct find_best_target_env fbt_env;
 	u64 start_t = 0;
 	int fastpath = 0;
-	/* Curtis, 20180111, ux realm*/
-	bool is_uxtop = is_opc_task(p, UT_FORE);
-
-	fbt_env.op_path = opc_select_path(current, p, prev_cpu);
-
-	if (fbt_env.op_path >= 0)
-		prev_cpu = fbt_env.op_path;
 
 	if (trace_sched_task_util_enabled())
 		start_t = sched_clock();
